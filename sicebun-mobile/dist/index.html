@@ -3,12 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#10b981" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sicebun-mobile</title>
+    <title>SICEBUN Mobile</title>
     <script type="module" crossorigin src="/assets/index-Qgd7Exwo.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DRKfSmyn.css">
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker registered:', reg.scope))
+            .catch(err => console.error('Service Worker registration failed:', err));
+        });
+      }
+    </script>
   </body>
 </html>
