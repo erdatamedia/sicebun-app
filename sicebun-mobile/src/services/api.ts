@@ -4,7 +4,7 @@ import type { ApiResponse, User, Sapi, Bangsa, Directory, Consultant } from '../
 
 // Create Axios Instance
 const apiClient = axios.create({
-  baseURL: '', // Relative URLs are proxied by Vite in dev, and served from same host in production
+  baseURL: import.meta.env.DEV ? '' : 'https://sicebun.jaslit.com',
 });
 
 // Helper to convert object to URLSearchParams (x-www-form-urlencoded)
